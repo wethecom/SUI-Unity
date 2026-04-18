@@ -1,0 +1,95 @@
+@namespace Game.UI
+
+<div class="card">
+  <label class="status-pill">LIVE</label>
+  <label class="z-chip z-low">Base</label>
+  <label class="z-chip z-high">Top</label>
+
+  <h3 class="title">@title</h3>
+  <p class="muted">Name token: @playerName</p>
+
+  <input class="field" name="playerName" value="@playerName" minlength="3" required="true" onchange="NameChanged" />
+  <input class="field" name="email" value="" required="true" pattern="^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$" onchange="NameChanged" />
+
+  <div class="row" style="justify-content: start; gap: 12px;">
+    <input type="checkbox" name="isReady" checked="false" label="Ready?" onchange="ToggleReady" />
+    <img src="image_6" style="width: 120px; height: 60px;" />
+  </div>
+
+  <button id="primary-cta" class="button" onclick="Submit">Submit</button>
+  <button class="button" disabled="true" onclick="Submit">Disabled Action</button>
+
+  <textarea name="bio" style="height: 72px; width: 100%;" onchange="NameChanged">Type here...</textarea>
+  <input class="field" name="lockedField" value="Locked Input" disabled="true" />
+
+  <input type="range" name="volume" min="0" max="100" step="5" value="40" onchange="NameChanged" />
+  <input class="field" name="maxPlayers" value="8" min="1" max="64" onchange="NameChanged" />
+
+  <select name="mode" style="height: 72px; width: 100%;" onchange="Submit">
+    <option value="arcade" selected="true">Arcade</option>
+    <option value="story">Story</option>
+    <option value="hardcore">Hardcore</option>
+  </select>
+
+  <div style="margin: 6px;">
+    <input type="radio" name="difficulty" value="easy" label="Easy" checked="true" onchange="Submit" />
+    <input type="radio" name="difficulty" value="normal" label="Normal" onchange="Submit" />
+    <input type="radio" name="difficulty" value="hard" label="Hard" onchange="Submit" />
+  </div>
+
+  <progress value="0.64" max="1" style="height: 14px; width: 100%;" />
+  <meter value="0.42" min="0" max="1" low="0.3" high="0.75" style="height: 14px; width: 100%;" />
+
+  <div class="wrap-demo">
+    <button class="chip grow-2">Primary Action</button>
+    <button class="chip grow-1">Secondary</button>
+    <button class="chip grow-1 shrink-0">Pinned</button>
+    <button class="chip grow-1">Help</button>
+    <button class="chip grow-1">Settings</button>
+    <button class="chip grow-1">About</button>
+  </div>
+
+  <div class="scroll-demo">
+    <p>Log line 01</p>
+    <p>Log line 02</p>
+    <p>Log line 03</p>
+    <p>Log line 04</p>
+    <p>Log line 05</p>
+    <p>Log line 06</p>
+    <p>Log line 07</p>
+    <p>Log line 08</p>
+    <p>Log line 09</p>
+    <p>Log line 10</p>
+    <p>Log line 11</p>
+    <p>Log line 12</p>
+  </div>
+
+  <p class="muted">Drag source: @suiDragSourceId | Drop target: @suiDropTargetId | Data: @suiDragData</p>
+  <div class="drag-row">
+    <label class="drag-item" draggable="true" drag-data="item_alpha" ondragstart="NameChanged" ondragend="NameChanged">Alpha</label>
+    <label class="drag-item" draggable="true" drag-data="item_bravo" ondragstart="NameChanged" ondragend="NameChanged">Bravo</label>
+    <label class="drag-item" draggable="true" drag-data="item_charlie" ondragstart="NameChanged" ondragend="NameChanged">Charlie</label>
+  </div>
+  <div class="drop-zone" droppable="true" ondragenter="ToggleReady" ondragleave="ToggleReady" ondrop="Submit">
+    Drop items here
+  </div>
+
+  <ul style="margin: 8px;">
+    <li>Fast setup</li>
+    <li>Token binding</li>
+  </ul>
+
+  <ol style="margin: 8px;">
+    <li>Hover</li>
+    <li>Focus</li>
+    <li>Active</li>
+  </ol>
+</div>
+
+<window id="demo-modal" class="window" draggable="true" style="width: 280px; margin: 14px;">
+  <window-header class="window-header">Demo Modal (Drag Me)</window-header>
+  <window-body class="window-body">
+    <p class="muted">This is modal/window foundation v1.</p>
+    <button class="button" onclick="Submit">Confirm</button>
+  </window-body>
+</window>
